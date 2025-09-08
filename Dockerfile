@@ -1,23 +1,14 @@
-# use the image for spring boot application build process
-FROM maven:3.6.3-openjdk-11-slim as build
+# Use official Java runtime as base image
+FROM openjdk:17-jdk-slim
 
-# set the working directory
+# Set working directory inside container
 WORKDIR /app
 
-# copy pom.xml and all files
-COPY pom.xml .
-COPY . .
+# Copy the JAR file built by Maven into the container
+COPY target/*.jar app.jar
 
-# Run the build command to build app
-RUN mvn clean install
-
-# stage 2 smaller iimage for previous stage
-FROM openjdk:11-jre-slim
-
-WORKDIR /app
-
-COPY --from=build /app/target/phonebook-0.0.1-SNAPSHOT.jar .
-
+# Expose port your Spring Boot app uses
 EXPOSE 8080
 
-CMD ["java","-jar","/app/phonebook-0.0.1-SNAPSHOT.jar"]
+# Command to run the Spring Boot app
+ENTRYPOINT ["java","-jar","app.jar"]
