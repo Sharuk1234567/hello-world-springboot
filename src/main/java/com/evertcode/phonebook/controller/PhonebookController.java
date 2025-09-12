@@ -48,13 +48,7 @@ public class PhonebookController {
 	@GetMapping("/demoLogging")
 	public String demoLogging(@RequestParam(required = true, name = "name") final String name) {
 
-		LOG.trace("Hola " + name + " desde un logging trace");
-		LOG.debug("Hola " + name + " desde un logging debug");
-		LOG.info("Hola " + name + " desde un logging info");
-		LOG.warn("Hola " + name + " desde un logging warn");
-		LOG.error("Hola " + name + " desde un logging error");
-		
-		return "Hello, " + name + "!";
+		return "Hello, " + name + " khairiyat? Kaise ho?";
 	}
 
 	/**
