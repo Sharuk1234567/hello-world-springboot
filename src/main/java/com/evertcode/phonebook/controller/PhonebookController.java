@@ -54,7 +54,7 @@ public class PhonebookController {
 		LOG.warn("Hola " + name + " desde un logging warn");
 		LOG.error("Hola " + name + " desde un logging error");
 		
-		return "Prueba de uso de logging con spring boot.";
+		return "Hello, " + name + "!";
 	}
 
 	/**
