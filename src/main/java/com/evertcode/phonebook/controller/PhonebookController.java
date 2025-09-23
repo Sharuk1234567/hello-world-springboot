@@ -48,7 +48,7 @@ public class PhonebookController {
 	@GetMapping("/demoLogging")
 	public String demoLogging(@RequestParam(required = true, name = "name") final String name) {
 
-		return "Hello, " + name + " khairiyat? Kaise ho? project1 testing";
+		return "Hello" + name + " khairiyat? Kaise ho? project1 testing";
 	}
 
 	/**
